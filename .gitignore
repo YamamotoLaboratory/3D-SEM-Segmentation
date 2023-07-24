@@ -1,0 +1,2 @@
+./dataset/train_dataset/*.npy
+./dataset/test_dataset/*.npy
