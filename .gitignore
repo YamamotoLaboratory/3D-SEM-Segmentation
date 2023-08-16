@@ -1,5 +1,7 @@
-dataset/train_dataset/*.npy
-dataset/test_dataset/*.npy
+# dataset
+dataset/*
+!dataset/sample
+!dataset/*.py
 
-image
-results
+# results
+results/*
