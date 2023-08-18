@@ -3,6 +3,7 @@ import sys, argparse, re, os
 from PIL import Image
 
 sys.dont_write_bytecode = True
+sys.path.append('{}'.format(os.getcwd()))
 
 from log import load_logging_config
 

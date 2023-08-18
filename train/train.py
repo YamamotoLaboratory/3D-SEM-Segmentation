@@ -7,6 +7,7 @@ import numpy as np
 from rich.progress import track
 
 sys.dont_write_bytecode = True
+sys.path.append('{}'.format(os.getcwd()))
 
 from config import get_config, gpu_setting
 from log import load_logging_config
@@ -86,7 +87,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     logger = load_logging_config((lambda args: 'debug_logger' if args.debug else __name__)(args))
-    config = get_config(logger)
+    config = get_config(logger, '{}/config/train/config.ini'.format(os.getcwd()))
     gpu_setting(logger, int(config.get('DEFAULT', 'gpu_memory_limit')))
 
     # Optmizer Settings
