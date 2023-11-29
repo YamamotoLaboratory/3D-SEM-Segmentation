@@ -1,4 +1,4 @@
-import sys, argparse, os, glob, random
+import sys, argparse, os, glob, random, gzip
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 import tensorflow as tf
@@ -50,7 +50,10 @@ class ImageAugmenter(object):
         images_dataset = np.concatenate(images_dataset, 0)
         masks_dataset = np.concatenate(masks_dataset, 0)
 
-        np.save(self.save_test_path if self.args.test else self.save_train_path, np.array([images_dataset, masks_dataset])/255)
+        # 読み込み速度の関係よりcompresslevelは6に設定、データ容量としては約1/10に圧縮している。
+        with gzip.GzipFile(self.save_test_path if self.args.test else self.save_train_path, "wb", compresslevel=6) as f:
+            self.logger.debug('圧縮されたgzipファイルで保存')
+            np.save(f, np.array([images_dataset, masks_dataset])/255)
 
         self.logger.info('データセット作成完了。{}に保存しました・'.format(self.save_test_path if self.args.test else self.save_train_path))
         self.logger.info('サイズは{}になります。'.format(images_dataset.shape))
@@ -143,6 +146,12 @@ class ImageAugmenter(object):
 
         if len(dir_img) == 0 or len(dir_seg) == 0 or (len(dir_img) != len(dir_seg)):
             logger.error('画像がディレクトリに保存されていません。')
+            sys.exit('プログラムを終了します。')
+        if os.path.isfile(self.save_train_path):
+            logger.error('教師用データセット"{}"がすでにディレクトリに存在しています。'.format(self.save_train_path))
+            sys.exit('プログラムを終了します。')
+        if os.path.isfile(self.save_test_path):
+            logger.error('テスト用データセット"{}"がすでにディレクトリに存在しています。'.format(self.save_train_path))
             sys.exit('プログラムを終了します。')
 
     def pair_image_checker(self, basename_without_ext):

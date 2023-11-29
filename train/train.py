@@ -1,4 +1,4 @@
-import os, sys, argparse, json, datetime, psutil, re
+import os, sys, argparse, json, datetime, psutil, re, gzip
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 import tensorflow as tf
@@ -100,7 +100,8 @@ if __name__ == '__main__':
 
     # DataSet Loading
     dadtaset_config = config['DATASET']
-    img_train, seg_train = np.load(dadtaset_config['train_dataset'])
+    with gzip.GzipFile(dadtaset_config['train_dataset'], "r") as f:
+            img_train, seg_train = np.load(f)
     img_train = np.array(img_train)
     seg_train = np.array(seg_train)
 
