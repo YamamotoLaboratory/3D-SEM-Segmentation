@@ -1,2 +1,12 @@
-./dataset/train_dataset/*.npy
-./dataset/test_dataset/*.npy
+# local
+local/
+
+# dataset
+dataset/*
+!dataset/sample
+!dataset/*.py
+!dataset/*.ipynb
+!dataset/train_dataset/
+
+# results
+results/*

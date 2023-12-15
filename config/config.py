@@ -1,12 +1,11 @@
 import os, sys, configparser, errno
 import tensorflow as tf
 
-def get_config(logger):
+def get_config(logger, path):
 
     config = configparser.ConfigParser()
 
-    config_path = './config/config.ini'
-
+    config_path = path
     
     if not os.path.exists(config_path):
         logger.error('ファイルの読み込みにエラーが発生しました。{} のファイルが存在しません。'.format(config_path))
