@@ -1,16 +1,15 @@
 # 3D-SEM-Segmentation
 
-Overview Iga 
+## Overview
 
 ## Description
 
 ## Requirement
-
-## Install
-
-## Usage
-
+やるな
 ## Demo
+git知らない人にreadmeだけ読んだだけでここまでこさせろ
+datasetにあるimg_checkをjupyterで動かせ！
+## Usage
 
 ## Licence
 
@@ -20,3 +19,4 @@ Overview Iga
 [1] Sample
 
 [YamamotoLaboratory](https://github.com/YamamotoLaboratory)
+## Contact us
