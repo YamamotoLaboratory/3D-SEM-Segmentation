@@ -64,5 +64,6 @@ xFx]FeAs (x=0.05−0.12) with Tc=26 K. J. Am. Chem. Soc. 130, 3296–3297 (2008)
 Methods 9, 671–675 (2012).](https://doi.org/10.1038/nmeth.2089).
 
 ## Contact us
-[YamamotoLaboratory github](https://github.com/YamamotoLaboratory)
-[YamamotoLaboratory homepage](https://web.tuat.ac.jp/~yamamoto/)
+[YamamotoLaboratory](https://web.tuat.ac.jp/~yamamoto/)
+
+[Github](https://github.com/YamamotoLaboratory)
