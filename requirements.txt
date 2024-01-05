@@ -1,3 +1,8 @@
-tensorflow
-numpy
-rich
+tensorflow==2.4.1
+numpy==1.19.5
+pandas==1.2.3
+matplotlib==3.3.4
+rich==13.3.5
+opencv-python==4.5.1.48
+scikit-learn==0.24.2
+scikit-image==0.21.0
