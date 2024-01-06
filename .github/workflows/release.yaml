@@ -21,10 +21,12 @@ jobs:
           git push origin $RELEASE_VERSION
       - name: リリースノートの取得
         run: |
-          RELEASE_TITLE=`ls -1 release/ | egrep "$RELEASE_VERSION".*md`
-          RELEASE_BODY="`cat release/${RELEASE_TITLE}`"
+          RELEASE_TITLE=$(ls -1 release/ | grep "$RELEASE_VERSION" | head -n 1)
+          RELEASE_BODY=$(cat "release/${RELEASE_TITLE}")
           echo "RELEASE_TITLE=${RELEASE_TITLE}" >> $GITHUB_ENV
-          echo "RELEASE_BODY=${RELEASE_BODY}" >> $GITHUB_ENV
+          echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
+          echo "${RELEASE_BODY}" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - name: リリースの作成
         uses: actions/create-release@v1
         env:
