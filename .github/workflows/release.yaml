@@ -35,5 +35,5 @@ jobs:
           tag_name: ${{ env.RELEASE_VERSION }}
           release_name: ${{ env.RELEASE_TITLE }}
           body: ${{ env.RELEASE_BODY }}
-          draft: false
+          draft: true
           prerelease: false
