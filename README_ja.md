@@ -11,9 +11,7 @@
 
 この手法は従来の閾値処理による二値化[4]と比べてより高いIoUを示しました。
 
-本研究に用いられたデータセット及びプログラムはこのrepositoriで公開されています。
-
-
+本研究に用いられたデータセット及びプログラムはこのrepositoryで公開されています。
 
 
 ## Description
@@ -26,11 +24,34 @@
 お手持ちの画像の二値化に対応しています。こちらの方法に関してはUsageをご覧ください。
 
 ## Requirement
+これらの研究は以下の環境のもと実施した。
+
+- GPU：Nvidia Quadro RTX5000 16 GB GPU
+
+- Python環境
+```
+python==3.8.8
+tensorflow==2.4.1
+numpy==1.19.5
+pandas==1.2.3
+matplotlib==3.3.4
+rich==13.3.5
+opencv-python==4.5.1.48
+scikit-learn==0.24.2
+scikit-image==0.21.0
+```
+
+上記環境は以下コマンドで取得できる
+```
+pip install -r requirements.txt
+```
 
 ## Demo
 このプログラムはpythonで動作するプログラムです。
 お使いの環境でjupyterのpython動作環境を整備する必要があります。
 この案内ではWindowsユーザーの動作のサポートのみを行います。以下の案内に従い動作環境を整えてください。
+
+### 使用したデータセットの確認方法
 
 ローカル環境での準備
 1. [anaconda](https://www.anaconda.com/download)をダウンロード。インストールする。
@@ -40,11 +61,17 @@
 
 データのダウンロード、解凍、実行
 1. github上のページからCode→download ZIPでデータをダウンロードする。
-2. ZIPデータを展開し、jupyterlabのブラウザ左部にあるFileBrowzerから
-3D-SEM-Segmentation/dataset/img_check.ipynbを展開する。
+2. ZIPデータを展開し、jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/dataset/img_check.ipynbを展開する。
 3. jupyter上部にある▶▶マークから実行する。
 
 この状態で最下段左部にSEM画像、右部に二値化画像が表示されていれば正常に動作しています。
+
+### 学習済みモデルを使用したSemanticSegmentationのDemo
+
+U-Netモデルを使用してSemanticSegmentationを実施する。
+1. jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/demos/segmentation_demo.ipynbを展開する。
+2. jupyter上部にある▶▶マークから実行する。
+
 ## Usage
 
 ## Licence
