@@ -17,8 +17,9 @@ loggers:
   debug_logger:
     level: DEBUG
     handlers: [debug_console]
-    propagate: no
+    propagate: True
 root:
   level: DEBUG
   handlers: [root_console]
+  propagate: True
 disable_existing_loggers: False
