@@ -42,7 +42,7 @@ jobs:
           path: pytest.xml
       - name: Download Artifacts
         if: success() || failure()
-        uses: actions/download_artifact@v2
+        uses: actions/download-artifact@v2
         with:
           path: artifacts
       - name: Publish Test Results
