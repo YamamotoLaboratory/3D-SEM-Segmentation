@@ -35,7 +35,7 @@ jobs:
           python -m pytest tests --junit-xml pytest.xml 
         continue-on-error: true
       - name: Upload Unit Test Results
-        if: ${{ aloways() }}
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: Test Result (Python 3.8.8)
