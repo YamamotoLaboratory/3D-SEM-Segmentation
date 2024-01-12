@@ -1,4 +1,4 @@
-import os, sys, configparser, errno
+import os, sys, configparser
 import tensorflow as tf
 
 def get_config(logger, path):
@@ -8,11 +8,11 @@ def get_config(logger, path):
     config_path = path
     
     if not os.path.exists(config_path):
-        logger.error('ファイルの読み込みにエラーが発生しました。{} のファイルが存在しません。'.format(config_path))
+        logger.error('ファイルの読み込みにエラーが発生しました。{} のファイルが存在しません。'.format(config_path.split('/')[-1]))
         sys.exit('プログラムを終了します。')
 
     config.read(config_path, encoding='utf-8')
-    logger.info('{} の読み込みが完了しました。'.format(config_path))
+    logger.info('{} の読み込みが完了しました。'.format(config_path.split('/')[-1]))
 
     return config
 
