@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app
+      - .jupyter:/root/.jupyter
