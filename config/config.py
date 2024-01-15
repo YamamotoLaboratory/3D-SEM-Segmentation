@@ -1,5 +1,9 @@
-import os, sys, configparser
+import configparser
+import os
+import sys
+
 import tensorflow as tf
+
 
 def get_config(logger, path):
 

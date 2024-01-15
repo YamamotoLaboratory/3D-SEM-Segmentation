@@ -1,16 +1,15 @@
 from tensorflow.keras import Model
-
 from tensorflow.keras.activations import sigmoid
-
 from tensorflow.keras.layers import (
     BatchNormalization,
-    Conv2DTranspose,
     Conv2D,
-    MaxPooling2D,
+    Conv2DTranspose,
     Input,
+    MaxPooling2D,
     ReLU,
     concatenate,
 )
+
 
 class U_Net:
     def __init__(self, input_shape, filters, depth, input_channel, class_num, logger, kernel_size=(4, 4)):

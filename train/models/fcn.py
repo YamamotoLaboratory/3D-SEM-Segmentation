@@ -1,19 +1,17 @@
 import tensorflow as tf
-
 from tensorflow.keras import Model
-
 from tensorflow.keras.activations import sigmoid
-
 from tensorflow.keras.layers import (
-    BatchNormalization,
-    Conv2DTranspose,
-    Conv2D,
-    MaxPooling2D,
-    Input,
-    ReLU,
     Add,
+    BatchNormalization,
+    Conv2D,
+    Conv2DTranspose,
     Dropout,
+    Input,
+    MaxPooling2D,
+    ReLU,
 )
+
 
 class FCN:
     

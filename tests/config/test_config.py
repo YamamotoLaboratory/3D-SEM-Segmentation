@@ -1,16 +1,19 @@
-from logging import DEBUG, ERROR, INFO, WARNING
 import warnings
-import pytest
+from logging import ERROR, INFO
+
 warnings.filterwarnings('ignore')
 
-import sys, os
+import os
+import sys
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
-from config import get_config, gpu_setting
+from config import get_config
 from log import load_logging_config
+
 
 # 
 class TestConfig:

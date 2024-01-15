@@ -1,18 +1,18 @@
-from logging import DEBUG, ERROR, INFO, WARNING
 import warnings
-import pytest
+
 warnings.filterwarnings('ignore')
 
-import sys, os
+import os
+import sys
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
-from config import get_config, gpu_setting
 from log import load_logging_config
+from train.loss import bce_dice_loss, cross_entropy, dice_loss
 
-from train.loss import dice_loss, bce_dice_loss, cross_entropy
 
 class TestLoss:
 
