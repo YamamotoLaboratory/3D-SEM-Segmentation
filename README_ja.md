@@ -24,7 +24,7 @@
 お手持ちの画像の二値化に対応しています。こちらの方法に関してはUsageをご覧ください。
 
 ## Requirement
-これらの研究は以下の環境のもと実施した。
+これらの研究は以下の環境のもと実施いたしました。
 
 - GPU：Nvidia Quadro RTX5000 16 GB GPU
 
@@ -35,15 +35,12 @@ tensorflow==2.4.1
 numpy==1.19.5
 pandas==1.2.3
 matplotlib==3.3.4
-rich==13.3.5
+rich==10.15.0
 opencv-python==4.5.1.48
 scikit-learn==0.24.2
-scikit-image==0.21.0
-```
-
-上記環境は以下コマンドで取得できる
-```
-pip install -r requirements.txt
+scikit-image==0.19.3
+PyYAML==5.4.1
+jupyterlab==4.0.10
 ```
 
 ## Demo
@@ -51,28 +48,52 @@ pip install -r requirements.txt
 お使いの環境でjupyterのpython動作環境を整備する必要があります。
 この案内ではWindowsユーザーの動作のサポートのみを行います。以下の案内に従い動作環境を整えてください。
 
-### 使用したデータセットの確認方法
+### リポジトリの取得
 
-ローカル環境での準備
-1. [anaconda](https://www.anaconda.com/download)をダウンロード。インストールする。
-2. anaconda.nabigator を起動しenvironmentsからcreateを実行し新規環境を作成し、切り替える。
-3. serach packagesからrequirementに指定されたライブラリを検索し、チェックを入れてapplyから導入する。
-4. homeからall applications on your choose name になっていることを確認し、jupyterlabを起動する。
+- Gitbubからのzipダウンロード、解凍、実行
 
-データのダウンロード、解凍、実行
-1. github上のページからCode→download ZIPでデータをダウンロードする。
-2. ZIPデータを展開し、jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/dataset/img_check.ipynbを展開する。
-3. jupyter上部にある▶▶マークから実行する。
+github上のページからCode→download ZIPでリポジトリをダウンロードし解凍する。
+
+- Gitbubからリポジトリをクローン
+
+Gitがある場合、下記コマンドを実行する。
+```
+git clone https://github.com/YamamotoLaboratory/3D-SEM-Segmentation.git
+```
+
+### Python環境の準備
+
+- DockerでのPython環境の準備
+  
+以下コマンド実行する。
+```
+docker compose up -d
+```
+
+- ローカル環境でのPython環境の準備
+
+リポジトリのディレクトリに移動し、ライブラリをインストールする。
+```
+pip install -r requiremets.txt
+pip install jupyterlab==4.0.10
+```
+次に以下コマンドを実行しjupyter labを起動する。
+```
+jupyter lab
+```
+
+### 使用したデータセットの確認
+
+1. 起動後に[jupyter lab](http://localhost:8888/lab?)アクセスする。
+1. jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/dataset/img_check.ipynbを展開する。
+2. jupyter上部にある▶▶マークから実行する。
 
 この状態で最下段左部にSEM画像、右部に二値化画像が表示されていれば正常に動作しています。
 
-### 学習済みモデルを使用したSemanticSegmentationのDemo
+### 学習済みモデルを使用したセグメンテーション
 
-U-Netモデルを使用してSemanticSegmentationを実施する。
 1. jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/demos/segmentation_demo.ipynbを展開する。
 2. jupyter上部にある▶▶マークから実行する。
-
-## Usage
 
 ## Licence
 
@@ -86,6 +107,8 @@ MICCAI 2015. Lecture Notes in Computer Science (Navab, N., Hornegger, J., Wells,
 
 [2]Kamihara, Y., Watanabe, T., Hirano, M. & Hosono, H., Iron-Based Layered Superconductor La[O1-
 xFx]FeAs (x=0.05−0.12) with Tc=26 K. J. Am. Chem. Soc. 130, 3296–3297 (2008). 
+
+[3]私たちの論文です。
 
 [4] [Schneider, C., Rasband, W. & Eliceiri, K. NIH Image to ImageJ: 25 years of image analysis. Nat.
 Methods 9, 671–675 (2012).](https://doi.org/10.1038/nmeth.2089).
