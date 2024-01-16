@@ -19,7 +19,7 @@ sys.path.append('{}'.format(os.getcwd()))
 
 from loss import LossValue
 from metrics import MetricsValue
-from models import FCN, U_Net
+from models import FCN, Unet
 from optimizers import Optimizer, StepLR
 
 from config import get_config, gpu_setting
@@ -152,7 +152,7 @@ if __name__ == '__main__':
     build_model = None
     if args.model == 'unet':
         model_config = config[args.model]
-        build_model = U_Net(
+        build_model = Unet(
             [int(model_config['size']), int(model_config['size'])],
             int(model_config['filters']),
             int(model_config['depth']),

@@ -11,7 +11,7 @@ from tensorflow.keras.layers import (
 )
 
 
-class U_Net:
+class Unet:
     def __init__(self, input_shape, filters, depth, input_channel, class_num, logger, kernel_size=(4, 4)):
         self.SHAPE = input_shape
         self.FILTERS = filters
@@ -22,17 +22,17 @@ class U_Net:
         self.logger = logger
         self.logger.info('Model: U-Net, Input Size: {}x{}'.format(input_shape[0], input_shape[1]))
         
-    def _down_conv_block(self, x, filters, apply_ReLU=True, apply_BatchNormalization=True):
+    def _down_conv_block(self, x, filters, apply_relu=True, apply_batchnormalization=True):
         x = Conv2D(filters, kernel_size = self.KERNEL_SIZE, strides = 1, padding = 'same', kernel_initializer = 'he_normal', use_bias = False)(x)
-        if apply_ReLU:
+        if apply_relu:
             x = ReLU()(x)
-        if apply_BatchNormalization:
+        if apply_batchnormalization:
             x = BatchNormalization()(x)
         return x
     
-    def _up_conv_block(self, x, filters, apply_ReLU=True):
+    def _up_conv_block(self, x, filters, apply_relu=True):
         x = Conv2D(filters*2, kernel_size = self.KERNEL_SIZE, strides = 1, padding = 'same', kernel_initializer = 'he_normal', use_bias = False)(x)
-        if apply_ReLU:
+        if apply_relu:
             x = ReLU()(x)
         return x
     

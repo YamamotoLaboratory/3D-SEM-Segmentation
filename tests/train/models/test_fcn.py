@@ -80,7 +80,7 @@ class TestFCN:
         assert ("debug_logger", INFO, "Model: FCN-8s, Input Size: 256x256, Backbone: VGG-16") in caplog.record_tuples
         assert ("debug_logger", INFO, "FCN-8s作成完了") in caplog.record_tuples
 
-    def test_fcn_8s_AlexNet(self, caplog):
+    def test_fcn_8s_alexnet(self, caplog):
         model_config = self.config['fcn']
 
         build_model = FCN(
@@ -99,7 +99,7 @@ class TestFCN:
         assert ("debug_logger", INFO, "Model: FCN-8s, Input Size: 256x256, Backbone: AlexNet") in caplog.record_tuples
         assert ("debug_logger", INFO, "FCN-8s作成完了") in caplog.record_tuples
 
-    def test_fcn_8s_Resnet50(self, caplog):
+    def test_fcn_8s_resnet50(self, caplog):
         model_config = self.config['fcn']
 
         build_model = FCN(

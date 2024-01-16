@@ -13,7 +13,7 @@ sys.path.append('{}'.format(os.getcwd()))
 
 from config import get_config
 from log import load_logging_config
-from train.models import U_Net
+from train.models import Unet
 
 
 class TestUNet:
@@ -25,7 +25,7 @@ class TestUNet:
     def test_unet(self, caplog):
         model_config = self.config['unet']
 
-        build_model = U_Net(
+        build_model = Unet(
             [int(model_config['size']), int(model_config['size'])],
             int(model_config['filters']),
             int(model_config['depth']),

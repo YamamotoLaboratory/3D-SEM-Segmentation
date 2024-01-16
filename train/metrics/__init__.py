@@ -1,4 +1,4 @@
-from .metrics import dice_coeff, IoU
+from .metrics import dice_coeff, iou
 
 class MetricsValue(object):
     
@@ -21,7 +21,7 @@ class MetricsValue(object):
         if name == 'dice_coeff':
             return dice_coeff
         elif name == 'IoU':
-            return IoU
+            return iou
         else:
             return None
     
