@@ -1,19 +1,17 @@
 import tensorflow as tf
-
 from tensorflow.keras import Model
-
 from tensorflow.keras.activations import sigmoid
-
 from tensorflow.keras.layers import (
-    BatchNormalization,
-    Conv2DTranspose,
-    Conv2D,
-    MaxPooling2D,
-    Input,
-    ReLU,
     Add,
+    BatchNormalization,
+    Conv2D,
+    Conv2DTranspose,
     Dropout,
+    Input,
+    MaxPooling2D,
+    ReLU,
 )
+
 
 class FCN:
     
@@ -26,7 +24,7 @@ class FCN:
         self.backbone = backbone
         self.logger.info('Model: FCN-{}, Input Size: {}x{}, Backbone: {}'.format(up, input_shape[0], input_shape[1], backbone))
     
-    def vgg_Conv(self, x, channels):
+    def vgg_conv(self, x, channels):
         x = Conv2D(channels, kernel_size = (3, 3), strides = (1, 1), kernel_initializer="he_normal", padding = 'same', use_bias = False)(x)
         x = ReLU()(x)
         return x
@@ -38,14 +36,14 @@ class FCN:
         x = MaxPooling2D((3, 3), strides=(2, 2), padding = 'same')(x)
         return x
     
-    def _res_block(self, inputs, input_channel, output_channel, slides = (1, 1), dilation_rate=(1, 1) ,skip_connection = True, projection = True, get_afterMP=False):
+    def _res_block(self, inputs, input_channel, output_channel, slides = (1, 1), dilation_rate=(1, 1) ,skip_connection = True, projection = True, get_aftermp=False):
         input_depth = inputs.get_shape().as_list()[3]
         
         x = Conv2D(input_channel, kernel_size = (1, 1), strides = slides, dilation_rate = dilation_rate, kernel_initializer="he_normal", padding = 'same', use_bias = False)(inputs)
         x = BatchNormalization()(x)
         x = ReLU()(x)
         
-        if get_afterMP:
+        if get_aftermp:
             p = x
         
         x = Conv2D(input_channel, kernel_size = (3, 3), strides =(1, 1), dilation_rate = dilation_rate, kernel_initializer="he_normal", padding = 'same', use_bias = False)(x)
@@ -68,12 +66,12 @@ class FCN:
             x = ReLU()(x)
         else:
             x = ReLU()(x)
-        if get_afterMP:
+        if get_aftermp:
             return x, p
         else:
             return x
     
-    def vgg_last_Conv(self, x, channels):
+    def vgg_last_conv(self, x, channels):
         x = Conv2D(channels, kernel_size = (7, 7), strides = (1, 1), kernel_initializer="he_normal", padding = 'same', use_bias = False)(x)
         x = ReLU()(x)
         x = Dropout(0.5)(x)
@@ -142,29 +140,29 @@ class FCN:
         level = [2, 2, 3, 3, 3]
         
         for i in range(level[0]):
-            x = self.vgg_Conv(x, 64)
+            x = self.vgg_conv(x, 64)
         x = MaxPooling2D([2, 2])(x)
         
         for i in range(level[1]):
-            x = self.vgg_Conv(x, 128)
+            x = self.vgg_conv(x, 128)
         x = MaxPooling2D([2, 2])(x)
         
         for i in range(level[2]):
-            x = self.vgg_Conv(x, 256)
+            x = self.vgg_conv(x, 256)
         x = MaxPooling2D([2, 2])(x)
         p3 = x
         
         for i in range(level[3]):
-            x = self.vgg_Conv(x, 512)
+            x = self.vgg_conv(x, 512)
         x = MaxPooling2D([2, 2])(x)
         p4 = x
         
         for i in range(level[3]):
-            x = self.vgg_Conv(x, 512)
+            x = self.vgg_conv(x, 512)
         x = MaxPooling2D([2, 2])(x)
         
         
-        x = self.vgg_last_Conv(x, 4096)
+        x = self.vgg_last_conv(x, 4096)
         
         return x, p3, p4
     
@@ -174,12 +172,12 @@ class FCN:
             x = self._res_block(x, 64, 256, )
         for i in range(4):
             if i == 0:
-                x, p3 = self._res_block(x, 128, 512, slides = (2, 2), skip_connection = False, get_afterMP=True)
+                x, p3 = self._res_block(x, 128, 512, slides = (2, 2), skip_connection = False, get_aftermp=True)
             else:
                 x = self._res_block(x, 128, 512)
         for i in range(6):
             if i == 0:
-                x, p4 = self._res_block(x, 256, 1024, slides = (2, 2), skip_connection = False, get_afterMP=True)
+                x, p4 = self._res_block(x, 256, 1024, slides = (2, 2), skip_connection = False, get_aftermp=True)
             else:
                 x = self._res_block(x, 256, 1024)
         for i in range(3):

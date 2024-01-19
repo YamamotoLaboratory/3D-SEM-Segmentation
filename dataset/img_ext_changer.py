@@ -1,4 +1,7 @@
-import sys, argparse, re, os
+import argparse
+import os
+import re
+import sys
 
 from PIL import Image
 
@@ -6,6 +9,7 @@ sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
 from log import load_logging_config
+
 
 def png2bmp(args, logger):
     try:

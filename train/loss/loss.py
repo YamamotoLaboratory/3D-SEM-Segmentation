@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+
 def dice_loss(y_true, y_pred, smooth = 1):
     y_true_f = tf.reshape(y_true, [-1])
     y_pred_f = tf.reshape(y_pred, [-1])

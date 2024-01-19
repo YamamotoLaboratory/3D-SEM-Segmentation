@@ -34,7 +34,6 @@ jobs:
           pip install pytest==7.3.0 ruff==0.0.200
       - name: Python linter
         run: ruff ./
-        continue-on-error: true
       - name: test
         run: |
           python -m pytest tests --junit-xml pytest.xml 

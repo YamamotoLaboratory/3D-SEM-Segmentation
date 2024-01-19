@@ -1,18 +1,24 @@
-from logging import DEBUG, ERROR, INFO, WARNING
 import warnings
-import pytest
+from logging import ERROR, INFO
+
 warnings.filterwarnings('ignore')
 
-import sys, os
+import os
+import sys
+
+import pytest
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
-from config import get_config, gpu_setting
+import configparser
+
+from config import get_config
 from log import load_logging_config
 
-# 
+
 class TestConfig:
     
     def setup_method(self,):
@@ -21,13 +27,15 @@ class TestConfig:
     def test_config_load(self, caplog):
         config = get_config(self.logger, '{}/config/train/config.ini'.format(os.getcwd()))
 
+        assert isinstance(config, configparser.ConfigParser),"configはconfigparser.ConfigParserのインスタンスであるべき"
         assert len(caplog.records) == 1
         assert ("debug_logger", INFO, "config.ini の読み込みが完了しました。") in caplog.record_tuples
     
     def test_config_load_no_file(self, caplog):
 
         try:
-            config = get_config(self.logger, '{}/config/train/no-file'.format(os.getcwd()))
+            with pytest.raises(UnboundLocalError):
+                get_config(self.logger, '{}/config/train/no-file'.format(os.getcwd()))
         except SystemExit as e:
             assert e.code == 'プログラムを終了します。'
 

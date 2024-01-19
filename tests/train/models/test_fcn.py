@@ -1,17 +1,21 @@
-from logging import DEBUG, ERROR, INFO, WARNING
 import warnings
-import pytest
+from logging import INFO
+
 warnings.filterwarnings('ignore')
 
-import sys, os, re
+import os
+import re
+import sys
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
-from train.models import FCN
-from config import get_config, gpu_setting
+from config import get_config
 from log import load_logging_config
+from train.models import FCN
+
 
 class TestFCN:
 
@@ -76,7 +80,7 @@ class TestFCN:
         assert ("debug_logger", INFO, "Model: FCN-8s, Input Size: 256x256, Backbone: VGG-16") in caplog.record_tuples
         assert ("debug_logger", INFO, "FCN-8s作成完了") in caplog.record_tuples
 
-    def test_fcn_8s_AlexNet(self, caplog):
+    def test_fcn_8s_alexnet(self, caplog):
         model_config = self.config['fcn']
 
         build_model = FCN(
@@ -95,7 +99,7 @@ class TestFCN:
         assert ("debug_logger", INFO, "Model: FCN-8s, Input Size: 256x256, Backbone: AlexNet") in caplog.record_tuples
         assert ("debug_logger", INFO, "FCN-8s作成完了") in caplog.record_tuples
 
-    def test_fcn_8s_Resnet50(self, caplog):
+    def test_fcn_8s_resnet50(self, caplog):
         model_config = self.config['fcn']
 
         build_model = FCN(

@@ -1,6 +1,7 @@
 import tensorflow as tf
 import tensorflow_addons as tfa
 
+
 class Optimizer:
     
     def __init__(self, opt, initial_lr, wd = 0):

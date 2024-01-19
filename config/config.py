@@ -1,5 +1,9 @@
-import os, sys, configparser
+import configparser
+import os
+import sys
+
 import tensorflow as tf
+
 
 def get_config(logger, path):
 
@@ -30,6 +34,7 @@ def gpu_setting(logger, limit=3):
             # logger.info(message)
         except RuntimeError as e:
             logger.exception('Error')
+            logger.exception(e)
     
         logger.info("Num GPUs Available: {}, MEMORY LIMIT: {}MiB".format(g, str(1024*limit)))
         logger.info(message)

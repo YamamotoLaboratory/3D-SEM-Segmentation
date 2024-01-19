@@ -1,20 +1,30 @@
-import os, sys, argparse, json, datetime, psutil, re, gzip
+import argparse
+import datetime
+import gzip
+import json
+import os
+import re
+import sys
+
+import psutil
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
-import tensorflow as tf
 import numpy as np
-
+import tensorflow as tf
 from rich.progress import track
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
-from config import get_config, gpu_setting
-from log import load_logging_config
-from models import U_Net, FCN
 from loss import LossValue
 from metrics import MetricsValue
-from optimizers import Optimizer, StepLR 
+from models import FCN, Unet
+from optimizers import Optimizer, StepLR
+
+from config import get_config, gpu_setting
+from log import load_logging_config
+
 
 @tf.function
 def train_step(images, masks):
@@ -142,7 +152,7 @@ if __name__ == '__main__':
     build_model = None
     if args.model == 'unet':
         model_config = config[args.model]
-        build_model = U_Net(
+        build_model = Unet(
             [int(model_config['size']), int(model_config['size'])],
             int(model_config['filters']),
             int(model_config['depth']),

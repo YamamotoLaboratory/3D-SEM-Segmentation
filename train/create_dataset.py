@@ -1,17 +1,21 @@
-import sys, argparse, os, glob, random, gzip
+import argparse
+import glob
+import gzip
+import os
+import sys
+
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
-import tensorflow as tf
 import cv2
 import numpy as np
-
-from keras.preprocessing.image import img_to_array
+import tensorflow as tf
 
 sys.dont_write_bytecode = True
 sys.path.append('{}'.format(os.getcwd()))
 
 from config import get_config, gpu_setting
 from log import load_logging_config
+
 
 class ImageAugmenter(object):
 
@@ -124,7 +128,7 @@ class ImageAugmenter(object):
         img_path = ''
         seg_path = ''
 
-        if self.args.image == None and self.args.seg == None:
+        if self.args.image is None and self.args.seg is None:
             img_path = "./dataset/{}/img/".format(self.mode)
             seg_path = "./dataset/{}/seg/".format(self.mode)
         elif(self.args.image == self.args.seg):
