@@ -44,17 +44,17 @@ jupyterlab==4.0.10
 ```
 
 ## Demo
-このプログラムはpythonで動作するプログラムです。
-お使いの環境でjupyterのpython動作環境を整備する必要があります。
+このプログラムはPythonで動作するプログラムです。
+お使いの環境でjupyterのPython動作環境を整備する必要があります。
 この案内ではWindowsユーザーの動作のサポートのみを行います。以下の案内に従い動作環境を整えてください。
 
 ### リポジトリの取得
 
-- Gitbubからのzipダウンロード、解凍、実行
+- Githubからのzipダウンロード、解凍、実行
 
-github上のページからCode→download ZIPでリポジトリをダウンロードし解凍する。
+Github上のページからCode→download ZIPでリポジトリをダウンロードし解凍する。
 
-- Gitbubからリポジトリをクローン
+- Githubからリポジトリをクローン
 
 Gitがある場合、下記コマンドを実行する。
 ```
@@ -86,14 +86,15 @@ jupyter lab
 
 1. 起動後に[jupyter lab](http://localhost:8888/lab?)アクセスする。
 1. jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/dataset/img_check.ipynbを展開する。
-2. jupyter上部にある▶▶マークから実行する。
+2. jupyter上部にある▶▶マーク「Restart the kernel and run all cells」から実行する。
 
 この状態で最下段左部にSEM画像、右部に二値化画像が表示されていれば正常に動作しています。
 
 ### 学習済みモデルを使用したセグメンテーション
 
 1. jupyterlabのブラウザ左部にあるFileBrowzerから3D-SEM-Segmentation/demos/segmentation_demo.ipynbを展開する。
-2. jupyter上部にある▶▶マークから実行する。
+2. jupyter上部にある▶▶マーク「Restart the kernel and run all cells」から実行する。
+3. 最下段左部にSEM画像、右部に二値化画像が表示されていれば正常に動作しています。
 
 ## Licence
 
