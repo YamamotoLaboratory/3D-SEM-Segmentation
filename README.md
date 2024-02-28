@@ -10,10 +10,12 @@ https://doi.org/10.1038/s41524-024-01226-5 &gt;).
 
 ### Datasets
 1000 paired images (secondary electron images of iron-based high temperature superconductor ceramics obtained by scanning electron microscopy & manually segmented images).
+
 Filename:“3D-SEM-Segmentation\dataset\train_dataset\train_dataset.npy.gz”
 
 ### Codes
 pre-trained U-Net based semantic segmentation model.
+
 Filename: “3D-SEM-Segmentation\demos\unet.h5”
 
 
@@ -31,10 +33,10 @@ Run "3D-SEM-Segmentation/demos/segmentation_demo.ipynb".
 
 ## References
 
-[1] Hirabayashi, Y., Iga, H., Ogawa, H., Tokuta, S., Shimada, Y. &amp; Yamamoto, A.
+[1] [Hirabayashi, Y., Iga, H., Ogawa, H., Tokuta, S., Shimada, Y. &amp; Yamamoto, A.
 Deep learning for three-dimensional segmentation of electron microscopy
-images of complex ceramic materials. npj Comp. Mat. (2024)
-https://doi.org/10.1038/s41524-024-01226-5
+images of complex ceramic materials. npj Comp. Mat. (2024)](
+https://doi.org/10.1038/s41524-024-01226-5)
 
 [2] [Ronneberger, O., Fischer, P. & Brox, T. U-Net: Convolutional Networks for Biomedical Image
 Segmentation. Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015.
