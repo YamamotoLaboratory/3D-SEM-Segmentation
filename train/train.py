@@ -179,6 +179,7 @@ if __name__ == '__main__':
 
     logger.info('Modelの学習を開始します。')
 
+    # モデルの学習の開始
     train(int(config.get('PARAMETERS', 'epochs')), train_img_dataset, train_seg_dataset, opti_lr)
 
     logger.info('Modelの学習が終了しました。')
