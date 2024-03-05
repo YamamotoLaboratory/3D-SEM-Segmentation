@@ -28,7 +28,6 @@ Filename: “3D-SEM-Segmentation\demos\unet.h5”
 
 3D-SEM-Segmentation/demos/segmentation_demo.ipynbを実行してください。
 
-
 ## Licence
 
 [MIT](https://github.com/YamamotoLaboratory/3D-SEM-Segmentation/blob/main/LICENSE)
