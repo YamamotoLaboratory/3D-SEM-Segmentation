@@ -1,5 +1,6 @@
 [tool.ruff]
 
+
 line-length = 200
 
 select = ["I", "N", "E", "F"]
