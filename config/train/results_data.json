@@ -1,0 +1,59 @@
+{
+    "times_of_day":{
+        "column": "TIMES of DAY"
+    },
+    "epoch":{
+        "column": "EPOCH"
+    },
+    "cpu":{
+        "column": "CPU"
+    },
+    "gpu":{
+        "column": "GPU"
+    },
+    "memory":{
+        "column": "MEMORY"
+    },
+    "learning_rate":{
+        "column": "LEARNING_RATE"
+    },
+    "losses":{
+        "bce_dice_loss":{
+            "column":"BCE DICE LOSS",
+            "function":"bce_dice_loss",
+            "metrics":"mean"
+        },
+        "dice_loss":{
+            "column":"DICE LOSS",
+            "function":"dice_loss",
+            "metrics":"mean"
+        },
+        "binary_crossentropy":{
+            "column":"BINARY CROSS ENTROPY",
+            "function":"cross_entropy",
+            "metrics":"mean"
+        }
+    },
+    "metrics":{
+        "dice_coef":{
+            "column":"DICE COEFFICIENT",
+            "function":"dice_coeff",
+            "metrics":"mean"
+        },
+        "iou":{
+            "column":"IoU",
+            "function":"IoU",
+            "metrics":"mean"
+        },
+        "recall":{
+            "column":"RECALL",
+            "function":"None",
+            "metrics":"recall"
+        },
+        "precision":{
+            "column":"PRECISION",
+            "function":"None",
+            "metrics":"precision"
+        }
+    }
+}

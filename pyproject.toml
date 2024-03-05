@@ -1,0 +1,10 @@
+[tool.ruff]
+
+line-length = 200
+
+select = ["I", "N", "E", "F"]
+ignore = ["E402"]
+
+exclude = [
+    "__init__.py"
+]

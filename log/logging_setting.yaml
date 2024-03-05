@@ -1,0 +1,25 @@
+version: 1
+formatters:
+  template_fmt:
+    format: '%(message)s'
+  debug_fmt:
+    format: '%(message)s (%(funcName)s)'
+handlers:
+  root_console:
+    class: rich.logging.RichHandler
+    level: INFO
+    formatter: template_fmt
+  debug_console:
+    class: rich.logging.RichHandler
+    level: DEBUG
+    formatter: debug_fmt
+loggers:
+  debug_logger:
+    level: DEBUG
+    handlers: [debug_console]
+    propagate: True
+root:
+  level: DEBUG
+  handlers: [root_console]
+  propagate: True
+disable_existing_loggers: False
