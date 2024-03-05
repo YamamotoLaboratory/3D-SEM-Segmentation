@@ -53,5 +53,3 @@ class TestConfig:
         assert config['unet']['size'] == '256'
         assert config['fcn']['size'] == '256'
         assert config['RESULT']['train_filepath'] == './results/train.csv'
-
-

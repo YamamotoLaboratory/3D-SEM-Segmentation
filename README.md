@@ -18,7 +18,6 @@ pre-trained U-Net based semantic segmentation model.
 
 Filename: “3D-SEM-Segmentation\demos\unet.h5”
 
-
 ## Demo
 
 ## Checking the Used Dataset
