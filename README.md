@@ -28,7 +28,27 @@ Run "3D-SEM-Segmentation/demos/segmentation_demo.ipynb".
 
 ## Licence
 
-[MIT](https://github.com/YamamotoLaboratory/3D-SEM-Segmentation/blob/main/LICENSE)
+This dataset is released under the  
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
+
+### You are allowed to:
+- Use the dataset for non-commercial purposes, including academic research, education, and personal projects.
+- Copy, redistribute, and adapt the dataset under the same license terms.
+
+### You are NOT allowed to:
+- Use the dataset for commercial purposes, including but not limited to commercial products, services, or monetized applications.
+
+### Citation
+If you use this dataset in any academic work, including but not limited to:
+- journal papers
+- conference papers
+- workshop papers
+- theses or dissertations
+- preprints
+
+please cite the following paper:
+
+Hirabayashi, Y., Iga, H., Ogawa, H., Tokuta, S., Shimada, Y. & Yamamoto, A. Deep learning for three-dimensional segmentation of electron microscopy images of complex ceramic materials. npj Comp. Mat. (2024)
 
 ## References
 

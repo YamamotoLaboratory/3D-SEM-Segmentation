@@ -30,7 +30,12 @@ Filename: “3D-SEM-Segmentation\demos\unet.h5”
 
 ## Licence
 
-[MIT](https://github.com/YamamotoLaboratory/3D-SEM-Segmentation/blob/main/LICENSE)
+本データセットはCreative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)の下で公開されています。
+
+### 利用条件
+- 非商用目的での利用（研究・教育・個人利用など）は無償で可能です。
+- 商用利用は禁止されています。
+- 本データセットを用いた研究成果を論文・学会発表・プレプリント等で公開する場合は、以下の論文[1]を引用してください。
 
 ## References
 [1] Hirabayashi, Y., Iga, H., Ogawa, H., Tokuta, S., Shimada, Y. &amp; Yamamoto, A.
